@@ -12,5 +12,8 @@ function calculateResults() {
     const age = document.querySelector('#age').value;
     const sex = document.querySelector('#sex').value;
     const activity = document.querySelector('#activity').value;
+
+    //calculating basal metabolic rate
+    const bmr = ((10 * weight) + (6.25 * height) - (5 * age)) + parseFloat(sex);
     
 }
