@@ -13,7 +13,17 @@ function calculateResults() {
     const sex = document.querySelector('#sex').value;
     const activity = document.querySelector('#activity').value;
 
+    //Output vars
+    const dailyCalorieRequirements = document.querySelector('#dailyCalorie');
+
+
     //calculating basal metabolic rate
     const bmr = ((10 * weight) + (6.25 * height) - (5 * age)) + parseFloat(sex);
-    
+ 
+    if (isFinite(bmr)) {
+        let dailyCalorie = bmr * parseFloat(activity);
+        dailyCalorieRequirements.value = Math.round(dailyCalorie);
+    } else {
+        console.log('Wrong numbers...')
+    }
 }
