@@ -27,3 +27,14 @@ function calculateResults() {
         console.log('Wrong numbers...')
     }
 }
+
+//Function returns amount of macronutrient in grams
+function getAmountOfMacronutrient(dailyCalorie, procent, macro) {
+    let caloriePerGram;
+    if (macro === 'p' || macro === 'c') {
+        caloriePerGram = 4;
+    } else if (macro === 'f') {
+        caloriePerGram = 9;
+    }
+    return (dailyCalorie * (procent / 100)) / caloriePerGram;
+}
