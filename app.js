@@ -1,6 +1,7 @@
 //Listener for submit
 document.querySelector('#calorie-form').addEventListener('submit', function(e) {
     hideResults();
+    hideChart();
     displayLoading();
     setTimeout(calculateResults, 2000);
     e.preventDefault();
@@ -110,4 +111,8 @@ function displayMacrosRatioChart() {
 
 function displayChart() {
     document.querySelector('#chart').style.display = 'block';
+}
+
+function hideChart() {
+    document.querySelector('#chart').style.display = 'none';
 }
