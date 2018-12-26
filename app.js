@@ -32,6 +32,7 @@ function calculateResults() {
         dailyFatIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 40, 'f');
         displayResults();
         hideLoading();
+        displayMacrosRatioChart();
     } else {
         showError('Please check your numbers');
     }
@@ -81,4 +82,27 @@ function displayResults() {
 
 function hideResults() {
     document.querySelector('#results').style.display = 'none';
+}
+
+function displayMacrosRatioChart() {
+    const caloriesFromProtein = document.querySelector('#dailyProtein').value * 4;
+    const caloriesFromCarbs = document.querySelector('#dailyCarbs').value * 4;
+    const caloriesFromFat = document.querySelector('#dailyFat').value * 9;
+    const myChart = document.querySelector('#macrosRatioChart').getContext('2d');
+    
+    const macrosRatioChart = new Chart(myChart, {
+        type:'pie',
+        data:{
+            labels:['Protein', 'Fat', 'Carbs'],
+            datasets:[{
+                label:'Calories',
+                data:[caloriesFromProtein, caloriesFromFat, caloriesFromCarbs],
+                backgroundColor:['green', 'red', 'blue'],
+                borderWidth:2,
+                borderColor:'#777',
+                hoverBorderColor:'#000'
+            }]
+        },
+        options:{}
+    });
 }
