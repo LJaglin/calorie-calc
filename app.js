@@ -85,6 +85,7 @@ function hideResults() {
 }
 
 function displayMacrosRatioChart() {
+    displayChart();
     const caloriesFromProtein = document.querySelector('#dailyProtein').value * 4;
     const caloriesFromCarbs = document.querySelector('#dailyCarbs').value * 4;
     const caloriesFromFat = document.querySelector('#dailyFat').value * 9;
@@ -105,4 +106,8 @@ function displayMacrosRatioChart() {
         },
         options:{}
     });
+}
+
+function displayChart() {
+    document.querySelector('#chart').style.display = 'block';
 }
