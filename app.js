@@ -29,7 +29,7 @@ function calculateResults() {
         dailyCarbsIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 35, 'c');
         dailyFatIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 40, 'f');
     } else {
-        console.log('Wrong numbers...')
+        showError('Please check your numbers')
     }
 }
 
@@ -42,4 +42,14 @@ function getAmountOfMacronutrient(dailyCalorie, procent, macro) {
         caloriePerGram = 9;
     }
     return Math.round((dailyCalorie * (procent / 100)) / caloriePerGram);
+}
+
+//Function create div with error message 
+function showError(error) {
+    const errorDiv = document.createElement('div');
+    const card = document.querySelector('.card');
+    const heading = document.querySelector('.heading');
+    errorDiv.className = 'alert alert-danger';
+    errorDiv.appendChild(document.createTextNode(error));
+    card.insertBefore(errorDiv, heading);
 }
