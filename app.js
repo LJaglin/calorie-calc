@@ -15,7 +15,9 @@ function calculateResults() {
 
     //Output vars
     const dailyCalorieRequirements = document.querySelector('#dailyCalorie');
-
+    const daliyProteinIntake = document.querySelector('#dailyProtein');
+    const dailyCarbsIntake = document.querySelector('#dailyCarbs');
+    const dailyFatIntake = document.querySelector('#dailyFat');
 
     //calculating basal metabolic rate
     const bmr = ((10 * weight) + (6.25 * height) - (5 * age)) + parseFloat(sex);
@@ -23,6 +25,9 @@ function calculateResults() {
     if (isFinite(bmr)) {
         let dailyCalorie = bmr * parseFloat(activity);
         dailyCalorieRequirements.value = Math.round(dailyCalorie);
+        daliyProteinIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 25, 'p');
+        dailyCarbsIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 35, 'c');
+        dailyFatIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 40, 'f');
     } else {
         console.log('Wrong numbers...')
     }
@@ -36,5 +41,5 @@ function getAmountOfMacronutrient(dailyCalorie, procent, macro) {
     } else if (macro === 'f') {
         caloriePerGram = 9;
     }
-    return (dailyCalorie * (procent / 100)) / caloriePerGram;
+    return Math.round((dailyCalorie * (procent / 100)) / caloriePerGram);
 }
