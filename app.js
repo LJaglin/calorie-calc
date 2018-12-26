@@ -52,4 +52,11 @@ function showError(error) {
     errorDiv.className = 'alert alert-danger';
     errorDiv.appendChild(document.createTextNode(error));
     card.insertBefore(errorDiv, heading);
+
+    //Clear error after 3 sec
+    setTimeout(clearError, 3000);
+}
+
+function clearError() {
+    document.querySelector('.alert').remove();
 }
