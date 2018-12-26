@@ -1,5 +1,6 @@
 //Listener for submit
 document.querySelector('#calorie-form').addEventListener('submit', function(e) {
+    displayLoading();
     calculateResults();
     e.preventDefault();
 });
@@ -59,4 +60,8 @@ function showError(error) {
 
 function clearError() {
     document.querySelector('.alert').remove();
+}
+
+function displayLoading() {
+    document.querySelector('#loading').style.display = 'block';
 }
