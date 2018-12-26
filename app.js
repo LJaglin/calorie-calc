@@ -1,7 +1,7 @@
 //Listener for submit
 document.querySelector('#calorie-form').addEventListener('submit', function(e) {
     displayLoading();
-    calculateResults();
+    setTimeout(calculateResults, 2000);
     e.preventDefault();
 });
 
@@ -29,6 +29,7 @@ function calculateResults() {
         daliyProteinIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 25, 'p');
         dailyCarbsIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 35, 'c');
         dailyFatIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 40, 'f');
+        hideLoading();
     } else {
         showError('Please check your numbers')
     }
@@ -64,4 +65,8 @@ function clearError() {
 
 function displayLoading() {
     document.querySelector('#loading').style.display = 'block';
+}
+
+function hideLoading() {
+    document.querySelector('#loading').style.display = 'none';
 }
