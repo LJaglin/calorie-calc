@@ -1,5 +1,6 @@
 //Listener for submit
 document.querySelector('#calorie-form').addEventListener('submit', function(e) {
+    hideResults();
     displayLoading();
     setTimeout(calculateResults, 2000);
     e.preventDefault();
@@ -32,7 +33,7 @@ function calculateResults() {
         displayResults();
         hideLoading();
     } else {
-        showError('Please check your numbers')
+        showError('Please check your numbers');
     }
 }
 
@@ -49,6 +50,8 @@ function getAmountOfMacronutrient(dailyCalorie, procent, macro) {
 
 //Function create div with error message 
 function showError(error) {
+    hideResults();
+    hideLoading();
     const errorDiv = document.createElement('div');
     const card = document.querySelector('.card');
     const heading = document.querySelector('.heading');
@@ -74,4 +77,8 @@ function hideLoading() {
 
 function displayResults() {
     document.querySelector('#results').style.display = 'block';
+}
+
+function hideResults() {
+    document.querySelector('#results').style.display = 'none';
 }
