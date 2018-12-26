@@ -29,6 +29,7 @@ function calculateResults() {
         daliyProteinIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 25, 'p');
         dailyCarbsIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 35, 'c');
         dailyFatIntake.value = getAmountOfMacronutrient(dailyCalorieRequirements.value, 40, 'f');
+        displayResults();
         hideLoading();
     } else {
         showError('Please check your numbers')
@@ -69,4 +70,8 @@ function displayLoading() {
 
 function hideLoading() {
     document.querySelector('#loading').style.display = 'none';
+}
+
+function displayResults() {
+    document.querySelector('#results').style.display = 'block';
 }
