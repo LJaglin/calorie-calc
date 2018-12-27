@@ -99,13 +99,24 @@ function displayMacrosRatioChart() {
             datasets:[{
                 label:'Calories',
                 data:[caloriesFromProtein, caloriesFromFat, caloriesFromCarbs],
-                backgroundColor:['green', 'red', 'blue'],
-                borderWidth:2,
-                borderColor:'#777',
-                hoverBorderColor:'#000'
-            }]
+                backgroundColor:[
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(75, 192, 192, 0.6)'
+                  ],
+                  borderWidth:1,
+                  borderColor:'#777',
+                  hoverBorderWidth:2,
+                  hoverBorderColor:'#000'
+                }]
         },
-        options:{}
+        options:{
+            title:{
+                display:true,
+                text:'Macronutrients ratio',
+                fontSize:25
+            }
+        }
     });
 }
 
